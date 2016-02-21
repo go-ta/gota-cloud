@@ -1,0 +1,8 @@
+{
+  "name": "Small Store",
+  "version": "0.1.0",
+  "dependencies": {
+    "policies": "0.1.0",
+    "network": "0.1.0"
+  }
+}
