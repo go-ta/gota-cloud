@@ -70,7 +70,7 @@ module.exports = {
     if( status.activable ){
 
       // Have dependencies?
-      if(!_.isEmpty(service.manifest.dependencies))
+      if(_.isEmpty(service.manifest.dependencies))
         return _.assign(service, status);
 
       // Register dep graph nodes
