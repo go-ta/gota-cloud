@@ -49,28 +49,9 @@ var store = {
   core: {
     log: logger,
     http: express(),
-    config: util.config(),
-    //ctx: function(srvId){
-    //  return gota.ctx()
-    //},
-    //along: function(ctx){
-    //  // TODO
-    //  return _.assign({}, ctx);
-    //}
+    config: util.config()
   }
 };
-
-//var register = {
-//  srv: function(srv){
-//    srv.forEach(function(_srv){
-//      store.srv[_srv.id] = _srv;
-//      store.reg[_srv.id] = Object.keys(_srv.manifest.dependencies);
-//    });
-//  },
-//  api: function(srv, api){
-//    store.api[srv.id] = api;
-//  }
-//};
 
 
 // Core object

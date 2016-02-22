@@ -11,9 +11,25 @@ module.exports = function*(gota){
     .map(this.loader.process)
     .reduce(this.loader.queue, []);
 
+
   // Build context
-  var ctx = _.assign({}, _.pick(gota, ['store', 'policies', 'log']));
+  var ctx = _.assign({}, gota, this);
+
+  // Setup the resource api
+  var resApi = resources.reduce((_apis, res) => {
+
+    var api = this.setup.call(ctx, res);
+
+    _apis[res.pkgName] = api;
+
+    return _apis;
+
+  }, {});
+
+  // XXX
+  console.log();
+  console.log('>>> API', resApi);
 
   // Setup resources
-  return yield resources.map(this.setup.bind(ctx));
+  return resApi;
 };

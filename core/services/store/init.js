@@ -1,14 +1,44 @@
+"use strict";
+
+var _ = require('lodash');
 
 
 module.exports = function*(gota){
 
-  //S.log('info', 'Running STORE service init...');
-  //S.log('debug', S);
-  //S.log('debug', this);
+  //console.log('### gota', Object.keys(gota));
+  //console.log('### this', Object.keys(this));
 
-  //console.log('>>>', 'Running Persistence init...');
-  //console.log('>>> api', S);
-  //console.log('>>> this', this);
+  // Setup
+  var that = this;
 
-  return '[[Persistence API]]';
+  var api = {
+
+    // Create a new data store
+    create: function(params){
+
+      //console.log();
+      //console.log('+++ name', params.name);
+      //console.log('+++ model', params.model);
+      //console.log('+++ relations', params.relations);
+
+      // Setup
+      var store;
+
+      // Relational or non relational?
+      if(_.isArray(params.relations))
+        store = that.lib.sql.define.call(_.assign({}, gota, that), params);
+
+
+
+      return {
+        fetch: function(){},
+        create: function(){},
+        update: function(){},
+        remove: function(){}
+      };
+
+    }
+  };
+
+  return api;
 };
