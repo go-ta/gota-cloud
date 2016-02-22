@@ -1,14 +1,19 @@
+'use strict';
 
+var _  = require('lodash');
+var co = require('co');
 
-module.exports = function*(S){
+module.exports = function*(gota){
 
-  S.log('info', 'Running RESOURCE service init...');
-  S.log('debug', S);
-  //S.log('debug', this);
+  // Get the installed resources
+  var resources = this.loader
+    .candidates(this.loader.validate)
+    .map(this.loader.process)
+    .reduce(this.loader.queue, []);
 
-  //console.log('>>>', 'Running Resources init...');
-  //console.log('>>> api', S);
-  //console.log('>>> this', this);
+  // Build context
+  var ctx = _.assign({}, _.pick(gota, ['store', 'policies', 'log']));
 
-  return '[Resources API]';
+  // Setup resources
+  return yield resources.map(this.setup.bind(ctx));
 };

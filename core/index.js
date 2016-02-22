@@ -24,7 +24,12 @@ var services =_.reduce(candidates, init.validate, [])
 
 
 // Run init scripts
-init.run(services).then(function(_services){
+init.run(services).then(function(gota){
+
+  // XXX
+  //console.log('GOTA DUMP', gota);
+
+  // "BUILDING A CLOUD TOGETHER" - OUR CLOUD
 
   // Say hello!
   console.log(' ');

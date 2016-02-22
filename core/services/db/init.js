@@ -1,13 +1,13 @@
+'use strict';
 
-module.exports = function*(S){
+var Sequelize = require('sequelize');
 
-  //console.log('\n>>>', 'Running Database init...');
-  //console.log('>>> api', S);
-  //console.log('>>> this', this);
+module.exports = function*(gota){
 
-  S.log('info', 'Running DB service init...');
-  S.log('debug', S);
-  //S.log('debug', this);
-
-  return '[[Database API]]';
+  return new Sequelize(
+    this.config.name,
+    this.config.username,
+    this.config.password,
+    this.config.options
+  );
 };

@@ -2,9 +2,16 @@
   "name": "Users",
   "description": "SmallCloud system users",
   "version": "0.1.0",
-  "dependencies": {
-    "groups": "0.1.0"
-  },
+  "relations": [
+    {
+      "pkgName": "groups",
+      "version": "0.1.0",
+      "count": {
+        "in": "n",
+        "out": "n"
+      }
+    }
+  ],
   "schema": {
     "@vocab":     "http://schema.org",
     "@type":      "Person",
