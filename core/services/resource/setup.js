@@ -8,7 +8,7 @@ module.exports = function(resource){
   //console.log('### res', resource.pkgName);
   //console.log('### models', this.models);
   //console.log('### this', Object.keys(this));
-  ////console.log('###', arguments);
+  //console.log('###', arguments);
   //
   //apis[resource.pkgName] = {
   //  fetch: function(){},

@@ -27,7 +27,7 @@ module.exports = {
     // Create model instance
     var Instance = this.db.connection.define(params.name, params.model);
 
-    // Register relations
+    // Register relations?
     params.relations.forEach((relation) => {
 
       var type = _.values(relation.count).join('');
@@ -37,6 +37,11 @@ module.exports = {
       relations[type](Instance, relation.pkgName);
 
     });
+
+
+
+    // Sync and return promise
+    return this.db.connection.sync().then(() => Instance);
 
   }
 };
