@@ -47,5 +47,6 @@ init.run(services).then(function(gota){
 
   //console.log('\n[DUMP]', _services);
 }).catch(function(e){
+  console.error(e);
   console.log(e.stack);
 });

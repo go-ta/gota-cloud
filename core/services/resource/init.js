@@ -5,6 +5,10 @@ var co = require('co');
 
 module.exports = function*(gota){
 
+  //console.log('***', this);
+
+  var resourcesRun = gota.mkRunl(this.id, [{runTimeArgs: true}]);
+
   // Get the installed resources
   var resources = this.loader
     .candidates(this.loader.validate)

@@ -1,12 +1,14 @@
 
 'use strict';
 
-var _          = require('lodash');
-var co         = require('co');
-var path       = require('path');
-var logger     = require('./util/logger.js');
-var express    = require('express');
-var requireAll = require('require-all');
+var _             = require('lodash');
+var co            = require('co');
+var fs            = require('fs');
+var path          = require('path');
+var logger        = require('./util/logger.js');
+var express       = require('express');
+var requireAll    = require('require-all');
+var child_process = require('child_process');
 
 // Core config
 var configPaths = {
@@ -47,9 +49,26 @@ var store = {
   srv: {},
   reg: {},
   core: {
+    runl: {},
     log: logger,
     http: express(),
-    config: util.config()
+    config: util.config(),
+
+    // Runlevel factory
+    mkRunl: function(name, args){
+
+      //console.log('>>>', name, this.config.runlevels);
+
+      var config = this.config.runlevels[name];
+
+      console.log('>>>', config);
+
+      return store.core.runl[name] = child_process.fork(
+        path.resolve(__dirname, '../services/', name, config.path),
+        config.args,
+        config.options
+      );
+    }
   }
 };
 
