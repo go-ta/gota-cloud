@@ -43,9 +43,15 @@ module.exports = function(){
       processed[1].activable.should.be.true;
     });
 
-    it('Should remove inactivable services from de dependency graph', function(){
+    it('Should remove inactivable services from the dependency graph', function(){
       var processed = mockSrvs.map(init.process);
       Object.keys(depGraph.nodes).should.not.include(mockSrvs[2].id);
+    });
+
+    it('Should include all dependants of a service in the dependency graph', function(){
+      var processed  = mockSrvs.map(init.process);
+      var dependants = depGraph.dependantsOf('service00');
+      dependants.should.include('service01', 'service03');
     });
 
   });

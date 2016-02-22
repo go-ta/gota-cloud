@@ -31,13 +31,11 @@ init.run(services).then(function(_services){
   console.log('---------------------------------------------');
   console.log(' ');
   console.log(' ');
-  console.log(' ');
   console.log('   ', colors.cyan('   ,'));
   console.log('   ', colors.cyan('   A'));
   console.log('   ', colors.cyan('  d8b'));
   console.log('   ', colors.cyan(' d888b '), '  G O - T A ', colors.grey('  S E R V E R'));
   console.log('   ', colors.cyan(" `d8b´"));
-  console.log(' ');
   console.log(' ');
   console.log(' ');
   console.log(' ');
