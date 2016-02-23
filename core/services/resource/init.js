@@ -9,6 +9,11 @@ module.exports = function*(gota){
 
   var resourcesRun = gota.mkRunl(this.id, [{runTimeArgs: true}]);
 
+  resourcesRun.on('message', function(data){
+    console.log('CORE RUNLEVEL:', data);
+  });
+  resourcesRun.send({fromCore: true});
+
   // Get the installed resources
   var resources = this.loader
     .candidates(this.loader.validate)
