@@ -8,8 +8,8 @@ var stores = {};
 
 module.exports = function*(gota){
 
-  console.log('### gota', Object.keys(gota));
-  console.log('### this', Object.keys(this));
+  //console.log('### gota', Object.keys(gota));
+  //console.log('### this', Object.keys(this));
 
   // Setup
   var that = this;

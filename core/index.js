@@ -32,15 +32,20 @@ init.run(services).then(function(gota){
   // "BUILDING A CLOUD TOGETHER" - OUR CLOUD
 
   // Say hello!
+  //console.log(' ');
+  //console.log('---------------------------------------------');
   console.log(' ');
-  console.log('---------------------------------------------');
   console.log(' ');
-  console.log(' ');
-  console.log('   ', colors.cyan('   ,'));
-  console.log('   ', colors.cyan('   A'));
-  console.log('   ', colors.cyan('  d8b'));
-  console.log('   ', colors.cyan(' d888b '), '  G O - T A ', colors.grey('  S E R V E R'));
-  console.log('   ', colors.cyan(" `d8b´"));
+  console.log(colors.cyan('   ,'));
+  console.log(colors.cyan('   A'));
+  console.log(colors.cyan('  d8b   '), 'G O');
+  console.log(colors.cyan(' d888b  '), 'T A ', colors.grey('I S  R U N N I N G '));
+  console.log(colors.cyan(" `d8b´  "));
+  //console.log(' ', colors.cyan('   ,'));
+  //console.log(' ', colors.cyan('   A'));
+  //console.log(' ', colors.cyan('  d8b'));
+  //console.log(' ', colors.cyan(' d888b '), '  G O - T A ', colors.grey('  S E R V E R'));
+  //console.log(' ', colors.cyan(" `d8b´"));
   console.log(' ');
   console.log(' ');
   console.log(' ');

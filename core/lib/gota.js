@@ -7,8 +7,9 @@ var fs            = require('fs');
 var path          = require('path');
 var logger        = require('./util/logger.js');
 var express       = require('express');
+var Promise       = require('bluebird');
+var runlevels     = require('./runlevels/provider');
 var requireAll    = require('require-all');
-var child_process = require('child_process');
 
 // Core config
 var configPaths = {
@@ -55,19 +56,48 @@ var store = {
     config: util.config(),
 
     // Runlevel factory
-    mkRunl: function(name, args){
+    runlevel: runlevels,
 
-      //console.log('>>>', name, this.config.runlevels);
+    /// XXXX
+    _mkRunl: function(name, config, args){
 
-      var config = this.config.runlevels[name];
+      return new Promise(function(resolve, reject){
 
-      console.log('>>>', config);
+        // Setup
+        //var config = this.config.runlevels[name];
+        var child  = runlevels.create(name, config, args);
 
-      return store.core.runl[name] = child_process.fork(
-        path.resolve(__dirname, '../services/', name, config.path),
-        config.args,
-        config.options
-      );
+        // Listen for startup completion
+        child.on('message', (message) => {
+
+          // XXX
+          //console.log('GOTA: got message:', message);
+
+          // Parse data
+          var data = runlevels.parse(message);
+
+          if(data.target && data.status
+            && '_runl' === data.target
+            && 'ready' === data.status){
+            resolve(child);
+          }
+        });
+
+        // Abort if it takes too long
+        setTimeout(reject, 3 * 1000);
+      });
+
+      ////console.log('>>>', name, this.config.runlevels);
+      //
+      //var config = this.config.runlevels[name];
+      //
+      //console.log('>>>', config);
+      //
+      //return store.core.runl[name] = child_process.fork(
+      //  path.resolve(__dirname, '../services/', name, config.path),
+      //  config.args,
+      //  config.options
+      //);
     }
   }
 };
