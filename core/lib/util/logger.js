@@ -42,12 +42,13 @@
 //modeule.exports = logger;
 
 var colors = require('colors/safe');
+var Color  = require('Color');
 var _      = require('lodash');
 
 var levels = {
   trace:    colors.purple,
   input:    colors.grey,
-  verbose:  colors.cyan,
+  //verbose:  colors.cyan,
   prompt:   colors.grey,
   debug:    colors.grey,
   info:     colors.cyan,
@@ -61,7 +62,8 @@ module.exports = function(level, message){
 
   var color = levels[level];
 
-  console.log('', color(_.padRight(level, 7)), message)
+  console.log('', color(_.padRight(level, 6)), message)
+  //console.log('', color(_.padRight(level, 7)), message)
 };
 
 

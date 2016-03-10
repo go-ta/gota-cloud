@@ -7,25 +7,25 @@ module.exports = function*(gota){
 
   //console.log('***', this);
 
-  var resourcesRun = yield gota.runlevel.make(
-    this.id,
-    gota.config.runlevels[this.id],
-    {
-      log: gota.log,
-      store: gota.store,
-      plain: 'data',
-      test: function(id){
-        gota.log('debug', 'This is test running', id);
-        return 'This is a test response';
-      }
-    }
-  ).then((child) => {
-      //console.log('>>> Init: promise resolved for', this.id);
-      return child;
-    }).catch(function(err){
-      gota.log('error', 'Resource runlevel failed to start');
-      gota.log('error', err.stack);
-    });
+  //var resourcesRun = yield gota.runlevel.make(
+  //  this.id,
+  //  gota.config.runlevels[this.id],
+  //  {
+  //    log: gota.log,
+  //    store: gota.store,
+  //    plain: 'data',
+  //    test: function(id){
+  //      gota.log('debug', 'This is test running', id);
+  //      return 'This is a test response';
+  //    }
+  //  }
+  //).then((child) => {
+  //    //console.log('>>> Init: promise resolved for', this.id);
+  //    return child;
+  //  }).catch(function(err){
+  //    gota.log('error', 'Resource runlevel failed to start');
+  //    gota.log('error', err.stack);
+  //  });
 
   //resourcesRun.on('message', function(data){
   //  console.log('CORE RUNLEVEL:', data);

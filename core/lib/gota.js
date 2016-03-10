@@ -139,8 +139,8 @@ var gota = {
     }else{
 
       // Done!
-      console.log(' ');
-      this.core.log('info', 'Go-ta is ready');
+      //console.log(' ');
+      this.core.log('info', 'Cataplasma is ready');
       this.resolve(gota);
     }
   },

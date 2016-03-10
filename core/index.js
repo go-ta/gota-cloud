@@ -34,19 +34,29 @@ init.run(services).then(function(gota){
   // Say hello!
   //console.log(' ');
   //console.log('---------------------------------------------');
+  //console.log(' ');
   console.log(' ');
-  console.log(' ');
-  console.log(colors.cyan('   ,'));
-  console.log(colors.cyan('   A'));
-  console.log(colors.cyan('  d8b   '), 'G O');
-  console.log(colors.cyan(' d888b  '), 'T A ', colors.grey('I S  R U N N I N G '));
-  console.log(colors.cyan(" `d8b´  "));
+  //console.log(colors.cyan('    '));
+  //console.log(colors.cyan('    '));
+  //console.log('        ', colors.green('█   █  '));
+  //console.log('        ', colors.green('█ █ █  '));
+  //console.log('        ', colors.green("█   █  "));
+  //console.log('');
+  //console.log('        ', 'C A T A P L A S M A  !! ');
+  //console.log('        ', colors.grey('App Server'));
+  console.log(    colors.white(''));
+  console.log(    colors.white('  ■    '), 'CATAPLASMA! ');
+  console.log(    colors.cyan('  ■ ■  '), colors.cyan('Resource Server'));
+  console.log(    colors.white('    '));
+  //console.log(    colors.(' ◣ ◢  '), colors.grey('App Server'));
+  //console.log(  colors.white(' ▩ ▩ ▩ '));
+  //console.log(colors.white(" ▨ ◥ ◤ ▨ "), colors.grey('APP SERVER'));
   //console.log(' ', colors.cyan('   ,'));
   //console.log(' ', colors.cyan('   A'));
   //console.log(' ', colors.cyan('  d8b'));
   //console.log(' ', colors.cyan(' d888b '), '  G O - T A ', colors.grey('  S E R V E R'));
   //console.log(' ', colors.cyan(" `d8b´"));
-  console.log(' ');
+  //console.log(' ');
   console.log(' ');
   console.log(' ');
 
