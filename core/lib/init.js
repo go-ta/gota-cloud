@@ -109,7 +109,7 @@ module.exports = {
 
       // Say hello!
       console.log(' ');
-      gota.core.log('info', 'Starting go-ta services...');
+      gota.core.log('info', 'Starting smallcloud services...');
 
       // Run!
       gota.runner.call({
